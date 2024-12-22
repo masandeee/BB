@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BB Butchery Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('images/back.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 20px;
+            background: #473535;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .bubble {
+            width: 300px;
+            padding: 15px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .bubble:hover, .bubble:focus {
+           transform: scale(1.1);
+           box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+           transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+
+        .bubble.left {
+            transform: translateX(-100%);
+        }
+
+        .bubble.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        a{
+            color: rgb(207, 155, 155);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>uMlazi BB Butchery</h1>
+        <h3><i>Shisanyama and Butchery</i></h3>
+    </header>
+
+    <main>
+        <section class="gallery">
+            <div class="bubble pop left">
+                <img src="images/image1.jpeg" alt="Image 1">
+                <p>Delicious Pizza with Fresh Ingredients</p>
+            </div>
+            <div class="bubble pop right">
+                <img src="images/image2.jpeg" alt="Image 2">
+                <p>Homemade Burger with Crispy Fries</p>
+            </div>
+            <div class="bubble pop left">
+                <img src="images/image3.jpeg" alt="Image 3">
+                <p>Healthy Salad Bowl with Greens</p>
+            </div>
+            <div class="bubble pop right">
+                <img src="images/nyamaaaa.jpg" alt="Image 4">
+                <p>Spicy Noodles with Tasty Sauce</p>
+            </div>
+            <div class="bubble pop left">
+                <img src="images/shisanyama one.jpg" alt="Image 5">
+                <p>Chocolate Cake with Cream Topping</p>
+            </div>
+            <div class="bubble pop right">
+                <img src="images/shisanyama-two.png" alt="Image 6">
+                <p>Fresh Fruit Smoothie</p>
+            </div>
+            <div class="bubble pop left">
+                <img src="images/shisanyama-3.png" alt="Image 7">
+                <p>Hot Coffee with Latte Art</p>
+            </div>
+            <div class="bubble pop right">
+                <img src="images/last.jpg" alt="Image 8">
+                <p>Stack of Pancakes with Syrup</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Contact Us</h2>
+        <p>
+            <a href="https://www.instagram.com/umlazi_bb_butchery_?igsh=andmejhnN3pmZzRl" target="_blank">Follow us on Instagram</a>
+        </p>
+        <p>TikTok: @umlazi.bb.butchery</p>
+        <p>Working Hours: Mon-Fri, 7h00 am - 20h00 pm</p>
+        <p>Phone: 0789395103</p>
+        <Address>Address: 1482 Bhambatha Street, Umlazi BB, Umlazi 4066</Address>
+    </footer>
+
+    <script>
+        const bubbles = document.querySelectorAll('.bubble');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        bubbles.forEach(bubble => {
+            observer.observe(bubble);
+        });
+        bubbles.forEach(bubble => {
+    bubble.addEventListener('click', () => {
+        bubble.classList.toggle('show');
+    });
+});
+
+    </script>
+</body>
+</html>
